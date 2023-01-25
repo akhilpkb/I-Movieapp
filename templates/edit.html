@@ -5,16 +5,13 @@
     <div class="form-group">
       {% csrf_token %}
       <label>Movie Name </label><br />
-
       {{form.name}}<br />
-
       <label>Movie Description </label><br />
       {{form.desc}}<br />
       <label>Movie Year </label><br />
       {{form.year}}<br />
       <label>Movie Image </label><br />
       {{form.img}}
-
       <input type="submit" class="btn btn-primary" />
     </div>
   </form>

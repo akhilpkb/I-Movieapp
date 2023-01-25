@@ -15,6 +15,9 @@ def detail(request,movie_id):
     movie = Movies.objects.get(id=movie_id)
     return render(request, 'detail.html',{'movie':movie})
 
+def addp(request):
+    return render(request, 'add.html')
+
 def add_movie(request):
     if request.method == 'POST':
         name=request.POST.get('name')
@@ -23,7 +26,11 @@ def add_movie(request):
         img=request.FILES['img']
         movie = Movies(name=name, desc=desc, year=year,img=img)
         movie.save()
-    return render(request, 'add.html')
+        print('if')
+        return redirect('/')
+    else:
+        print('else')
+        return render(request,'add.html')
 
 def update(request,id):
     movie=Movies.objects.get(id=id)
